@@ -1,0 +1,11 @@
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+{namespace neos=TYPO3\Neos\ViewHelpers}
+
+
+<div class="form-group">
+
+    <button type="button" class="neoslive-form-submit btn btn-default" id="node-{node.Identifier}" ng-click="submit('node-{node.Identifier}')" >
+        {neos:contentElement.editable(property: 'text',tag:'span')}
+    </button>
+
+</div>

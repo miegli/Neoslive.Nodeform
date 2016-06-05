@@ -1,0 +1,32 @@
+prototype(Neoslive.Nodeform:FinisherMail) < prototype(Neoslive.Nodeform:AppMixin) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/FinisherMail.html'
+}
+
+
+prototype(Neoslive.Nodeform:FinisherMailCollection) < prototype(Neoslive.Nodeform:ContentCollection) {
+
+
+}
+
+prototype(Neoslive.Nodeform:ThenInFinisherMail) < prototype(Neoslive.Nodeform:AppElementsContentCollection) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Then.html'
+}
+
+prototype(Neoslive.Nodeform:ElseInFinisherMail) < prototype(Neoslive.Nodeform:AppElementsContentCollection) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Then.html'
+}
+
+prototype(Neoslive.Nodeform:FinisherMailRecipient) < prototype(Neoslive.Nodeform:AppElementsMixin) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/FinisherMailRecipient.html'
+}
+
+prototype(Neoslive.Nodeform:FinisherMailSubject) < prototype(Neoslive.Nodeform:AppElementsMixin) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/FinisherMailSubject.html'
+}
+
+prototype(Neoslive.Nodeform:ConditionInFinisherMail) {
+    nodes = ${Neoslive.Nodeform.getElements(node)}
+    renderer = TYPO3.Neos:ContentCase
+    rendererFrontend = TYPO3.Neos:ContentCollectionRenderer
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Condition.html'
+}

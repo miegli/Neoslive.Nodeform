@@ -1,0 +1,35 @@
+
+
+
+prototype(Neoslive.Nodeform:FormInput) < prototype(Neoslive.Nodeform:AppElementsMixin) {
+    templatePath = ${'resource://Neoslive.Nodeform/Private/Templates/Form/' +  q(node).closest('[instanceof Neoslive.Nodeform:AppMixin]').get(0).properties.markup + '/Input.html'}
+}
+
+
+prototype(Neoslive.Nodeform:FormTextarea) < prototype(Neoslive.Nodeform:AppElementsMixin) {
+    templatePath = ${'resource://Neoslive.Nodeform/Private/Templates/Form/' +  q(node).closest('[instanceof Neoslive.Nodeform:AppMixin]').get(0).properties.markup + '/Textarea.html'}
+}
+
+
+prototype(Neoslive.Nodeform:FormButton) < prototype(Neoslive.Nodeform:AppElementsMixin) {
+    templatePath = ${'resource://Neoslive.Nodeform/Private/Templates/Form/' +  q(node).closest('[instanceof Neoslive.Nodeform:AppMixin]').get(0).properties.markup + '/Button.html'}
+    appNode = ${q(node).closest('[instanceof Neoslive.Nodeform:AppMixin]').get(0)}
+}
+
+
+prototype(Neoslive.Nodeform:FormSelect)  {
+    templatePath = ${'resource://Neoslive.Nodeform/Private/Templates/Form/' +  q(node).closest('[instanceof Neoslive.Nodeform:AppMixin]').get(0).properties.markup + '/Select.html'}
+    #nodes = ${Neoslive.Nodeform.getElements(q(node).children('main').get(0))}
+    nodes = ${Neoslive.Nodeform.getElements(node)}
+    renderer = TYPO3.Neos:ContentCase
+    attributes.class = 'form-group'
+}
+
+
+prototype(Neoslive.Nodeform:FormSelectOption) < prototype(Neoslive.Nodeform:AppElementsMixin) {
+
+    templatePath = ${'resource://Neoslive.Nodeform/Private/Templates/Form/' +  q(node).closest('[instanceof Neoslive.Nodeform:AppMixin]').get(0).properties.markup + '/SelectOption.html'}
+
+    parent = ${Neoslive.Nodeform.getMostParent(node,'Neoslive.Nodeform:FormSelect')}
+
+}

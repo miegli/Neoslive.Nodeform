@@ -1,0 +1,110 @@
+
+# Abstract app mixin
+prototype(Neoslive.Nodeform:ContentCollection) < prototype(TYPO3.Neos:ContentCollection) {
+
+    renderer = TYPO3.Neos:ContentCollectionRenderer
+
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+
+}
+
+# Abstract app mixin
+prototype(Neoslive.Nodeform:AppMixin) < prototype(TYPO3.Neos:Content) {
+
+    nodes = ${Neoslive.Nodeform.getElements(node,true)}
+
+
+    childrenCount = ${q(node).children().count()}
+
+    # Render every item by its own TS object
+    renderer = TYPO3.Neos:ContentCase
+
+    attributes = TYPO3.TypoScript:Attributes
+
+
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+
+
+}
+
+
+prototype(Neoslive.Nodeform:AppElementsContentCollection) < prototype(TYPO3.Neos:ContentCollection) {
+
+
+    # Render every item by its own TS object
+    renderer = TYPO3.Neos:ContentCollectionRenderer
+
+    attributes = TYPO3.TypoScript:Attributes
+
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+
+
+
+}
+
+
+
+
+
+# Abstract app elements mixin
+prototype(Neoslive.Nodeform:AppElementsMixin) < prototype(TYPO3.Neos:Content) {
+
+
+
+    #renderer = TYPO3.Neos:ContentCase
+    renderer = TYPO3.Neos:ContentCollectionRenderer
+
+
+    wrapperNode = ${q(node).parentsUntil('[instanceof Neoslive.Nodeform:Form]').parent().get(0)}
+
+
+
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+
+}
+
+
+prototype(Neoslive.Nodeform:AppElementsContentMixin) < prototype(TYPO3.Neos:Content) {
+
+
+    renderer = TYPO3.Neos:ContentCase
+
+
+    wrapperNode = ${q(node).parentsUntil('[instanceof Neoslive.Nodeform:Form]').parent().get(0)}
+
+
+
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+}
+
+

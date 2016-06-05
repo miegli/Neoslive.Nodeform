@@ -1,0 +1,64 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+{namespace nl=Neoslive\Nodeform\ViewHelpers}
+
+
+<div {attributes -> f:format.raw()}>
+
+    <f:if condition="{neos:rendering.inBackend()}">
+        <f:then>
+
+
+            <f:if condition="{parent}">
+
+                <f:then>
+                    <f:if condition="{parent.nodeData.properties.type} == 'dropdown'">
+                        <f:then>
+                            <neos:contentElement.wrap node="{node}">
+                                <optgroup label="{f:translate(id:'and', source:'Main', package:'Neoslive.Nodeform')}" rel="typo3:content-collection">
+                                    <f:for each="{nodes}" as="item">
+                                        <neos:contentElement.wrap node="{item}">
+                                        <ts:render path="renderer" context="{node: item}"/>
+                                        </neos:contentElement.wrap>
+                                    </f:for>
+                                </optgroup>
+
+                            </neos:contentElement.wrap>
+
+                        </f:then>
+                        <f:else>
+                            <div class="neoslive-nodeform-label neoslive-nodeform-label-and neoslive-contentelement"><f:translate id="and" source="Main" package="Neoslive.Nodeform"/></div>
+                            <f:for each="{nodes}" as="item">
+                                <ts:render path="renderer" context="{node: item}"/>
+                            </f:for>
+
+
+                        </f:else>
+                    </f:if>
+
+                </f:then>
+
+                <f:else>
+                    <div class="neoslive-nodeform-label neoslive-nodeform-label-and neoslive-contentelement"><f:translate id="and" source="Main" package="Neoslive.Nodeform"/></div>
+                    <f:for each="{nodes}" as="item">
+                        <ts:render path="renderer" context="{node: item}"/>
+                    </f:for>
+
+                </f:else>
+            </f:if>
+
+        </f:then>
+        <f:else>
+            <f:for each="{nodes}" as="item">
+                <ts:render path="renderer" context="{node: item}"/>
+            </f:for>
+
+        </f:else>
+    </f:if>
+
+
+
+
+
+
+</div>

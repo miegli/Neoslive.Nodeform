@@ -1,0 +1,53 @@
+TYPO3:
+  Neos:
+    typoScript:
+      autoInclude:
+        'Neoslive.Nodeform': TRUE
+
+    nodeTypes:
+      groups:
+        neoslivenodeform:
+          position: 0
+          label: 'Neoslive.Nodeform:Main:nodeTypes.groups.neoslivenodeform'
+        neoslivenodeformform:
+          position: 0
+          label: 'Neoslive.Nodeform:Main:nodeTypes.groups.neoslivenodeformform'
+        neoslivenodeformcompare:
+          position: 0
+          label: 'Neoslive.Nodeform:Main:nodeTypes.groups.neoslivenodeformcompare'
+        neoslivenodeformlogicaloparetor:
+          position: 0
+          label: 'Neoslive.Nodeform:Main:nodeTypes.groups.neoslivenodeformlogicaloparetor'
+        neoslivenodeformfinisher:
+          position: 0
+          label: 'Neoslive.Nodeform:Main:nodeTypes.groups.neoslivenodeformfinisher'
+        neoslivenodeformfinishermail:
+          position: 0
+          label: 'Neoslive.Nodeform:Main:nodeTypes.groups.neoslivenodeformfinishermail'
+
+
+
+
+    userInterface:
+
+#      navigateComponent:
+#        structureTree:
+#          loadingDepth: 99
+
+      translation:
+        # Configure which localization sources should be automatically included.
+        # The included sources are parsed into the xliff.json which is loaded by Neos
+        # for handling translations in the javascript code.
+        #
+        # Format:
+        #   'Package.Key': ['Main', 'Errors', 'NodeTypes']
+        autoInclude:
+          'Neoslive.Nodeform': ['Main', 'NodeTypes/*']
+
+      # the default language for the backend interface (can be overridden by user preference through availableLanguages)
+      defaultLanguage: 'en'
+
+
+  TypoScript:
+    defaultContext:
+      'Neoslive.Nodeform': 'Neoslive\Nodeform\Eel\Helper\NodeHelper'

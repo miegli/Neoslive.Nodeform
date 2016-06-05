@@ -1,0 +1,6 @@
+
+prototype(Neoslive.Nodeform:CompareUserInput) < prototype(Neoslive.Nodeform:AppElementsMixin) {
+    //parent = ${q(node).closest('[instanceof Neoslive.Nodeform:ConditionInFormSelect]').parent().parent().get(0).nodeData.Identifier == q(node).closest('[instanceof Neoslive.Nodeform:FormSelect]').get(0).nodeData.Identifier ? q(node).closest('[instanceof Neoslive.Nodeform:FormSelect]').get(0) : q(node).parent().parent().get(0)}
+    parent = ${Neoslive.Nodeform.getMostParent(node,['Neoslive.Nodeform:FormSelect','Neoslive.Nodeform:ConditionInFormSelect'])}
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/CompareUserInput.html'
+}

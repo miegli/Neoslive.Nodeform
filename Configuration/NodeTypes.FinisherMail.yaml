@@ -1,0 +1,249 @@
+# finisher form
+'Neoslive.Nodeform:FinisherMail':
+  superTypes:
+    'Neoslive.Nodeform:AppFormElementsMixin': true
+    'Neoslive.Nodeform:AppFormFinisherMixin': true
+  ui:
+    label: i18n
+    group: neoslivenodeformfinisher
+    inlineEditable: true
+    icon: icon-envelope
+    inspector:
+      groups:
+        mail:
+          label: i18n
+          position: 5
+        senderstatic:
+          label: i18n
+          position: 10
+        senderdynamic:
+          label: i18n
+          position: 20
+  childNodes:
+    main:
+      type: 'Neoslive.Nodeform:FinisherMailCollection'
+  properties:
+    confirmationtext:
+      type: 'string'
+      ui:
+        label: i18n
+        inspector:
+          group: mail
+          editor: 'TYPO3.Neos/Inspector/Editors/TextAreaEditor'
+          editorOptions:
+            rows: 7
+    mail:
+     type: string
+     ui:
+       label: i18n
+       reloadIfChanged: TRUE
+       inspector:
+         group: senderstatic
+       position: 50
+    name:
+     type: string
+     ui:
+       label: i18n
+       reloadIfChanged: TRUE
+       inspector:
+         group: senderstatic
+       position: 10
+    maildynamic:
+     type: string
+     ui:
+       label: i18n
+       reloadIfChanged: TRUE
+       inspector:
+         group: senderdynamic
+         editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+         editorOptions:
+          allowEmpty: TRUE
+          placeholder: 'Select the Form identifier'
+          dataSourceIdentifier: 'neoslive-form-conditioncontraints'
+       position: 50
+    namedynamic:
+     type: array
+     ui:
+       label: i18n
+       reloadIfChanged: TRUE
+       inspector:
+         group: senderdynamic
+         editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+         editorOptions:
+          allowEmpty: TRUE
+          multiple: true
+          placeholder: 'Select the Form identifier'
+          dataSourceIdentifier: 'neoslive-form-conditioncontraints'
+       position: 10
+
+# finisher collection
+'Neoslive.Nodeform:FinisherMailCollection':
+  superTypes:
+    'Neoslive.Nodeform:ContentMixin': true
+    'Neoslive.Nodeform:ContentCollection': true
+  ui:
+    inlineEditable: true
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:AppFormElementsMixin': false
+      'Neoslive.Nodeform:Condition': false
+      'Neoslive.Nodeform:ConditionInFinisherMail': true
+      'TYPO3.Neos.NodeTypes:Text': true
+      'Neoslive.Nodeform:FinisherMailRecipient': true
+      'Neoslive.Nodeform:FinisherMailSubject': true
+
+
+# finisher condition
+'Neoslive.Nodeform:ConditionInFinisherMail':
+  superTypes:
+    'Neoslive.Nodeform:Condition': true
+  childNodes:
+    then:
+      type: 'Neoslive.Nodeform:ThenInFinisherMail'
+    else:
+      type: 'Neoslive.Nodeform:ElseInFinisherMail'
+
+
+# then in finisher mail
+'Neoslive.Nodeform:ThenInFinisherMail':
+  superTypes:
+    'Neoslive.Nodeform:ContentMixin': true
+    'TYPO3.Neos:ContentCollection': true
+  ui:
+    label: i18n
+    group: neoslivenodeformlogicaloparetor
+    inlineEditable: true
+    icon: icon-thumbs-up-alt
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:AppFormElementsMixin': false
+      'Neoslive.Nodeform:Condition': false
+      'TYPO3.Neos:Content': false
+      'Neoslive.Nodeform:FinisherForm': false
+      'Neoslive.Nodeform:FinisherMail': false
+      'Neoslive.Nodeform:ConditionInFinisherMail': true
+      'TYPO3.Neos.NodeTypes:Text': true
+      'Neoslive.Nodeform:FinisherMailRecipient': true
+      'Neoslive.Nodeform:FinisherMailSubject': true
+      'Neoslive.Nodeform:Form': false
+
+# else in finisher mail
+'Neoslive.Nodeform:ElseInFinisherMail':
+  superTypes:
+    'Neoslive.Nodeform:ContentMixin': true
+    'TYPO3.Neos:ContentCollection': true
+  ui:
+    label: i18n
+    group: neoslivenodeformlogicaloparetor
+    inlineEditable: true
+    icon: icon-thumbs-down-alt
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:AppFormElementsMixin': false
+      'Neoslive.Nodeform:Condition': false
+      'TYPO3.Neos:Content': false
+      'Neoslive.Nodeform:FinisherForm': false
+      'Neoslive.Nodeform:FinisherMail': false
+      'Neoslive.Nodeform:ConditionInFinisherMail': true
+      'TYPO3.Neos.NodeTypes:Text': true
+      'Neoslive.Nodeform:FinisherMailRecipient': true
+      'Neoslive.Nodeform:FinisherMailSubject': true
+      'Neoslive.Nodeform:Form': false
+
+
+
+# finisher mail recipient
+'Neoslive.Nodeform:FinisherMailRecipient':
+  superTypes:
+    'Neoslive.Nodeform:ContentMixin': true
+  ui:
+    label: i18n
+    group: neoslivenodeformfinishermail
+    inlineEditable: true
+    icon: icon-envelope
+    inspector:
+      groups:
+        recipientstatic:
+          label: i18n
+          position: 10
+        recipientdynamic:
+          label: i18n
+          position: 20
+  constraints:
+    nodeTypes:
+      '*': false
+  properties:
+    mail:
+      type: string
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: recipientstatic
+        position: 50
+    name:
+      type: string
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: recipientstatic
+        position: 10
+    maildynamic:
+      type: string
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: recipientdynamic
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+           allowEmpty: TRUE
+           placeholder: 'Select the Form identifier'
+           dataSourceIdentifier: 'neoslive-form-conditioncontraints'
+        position: 50
+    namedynamic:
+      type: array
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: recipientdynamic
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+           allowEmpty: TRUE
+           multiple: TRUE
+           placeholder: 'Select the Form identifier'
+           dataSourceIdentifier: 'neoslive-form-conditioncontraints'
+        position: 10
+
+
+
+# finisher mail subject
+'Neoslive.Nodeform:FinisherMailSubject':
+  superTypes:
+        'Neoslive.Nodeform:ContentMixin': true
+  ui:
+    label: i18n
+    group: neoslivenodeformfinishermail
+    inlineEditable: true
+    icon: icon-info
+    inspector:
+      groups:
+        recipient:
+          label: i18n
+          position: 10
+  constraints:
+    nodeTypes:
+      '*': false
+  properties:
+    subject:
+      type: string
+      defaultValue: 'Mail subject'
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        position: 50

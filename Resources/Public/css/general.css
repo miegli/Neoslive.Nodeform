@@ -1,0 +1,221 @@
+
+.neoslive-nodeform-welcome {
+    display: none !important;
+}
+
+.neoslive-nodeform-content-collection {
+    outline: 0px;
+}
+
+.neoslive-nodeform-content-collection .neos.neos-empty-contentcollection-overlay {
+    outline: 0px;
+    display: none;
+}
+
+.neoslive-nodeform-placeholderSelectBox, .neoslive-nodeform-placeholderSelectBox option {
+    width:0px !important;
+    height:0px !important;
+    overflow: hidden !important;;
+    border:0 !important;;
+    background-color:#323232!important;
+    color: #323232 !important;
+    border-color: #323232 !important;
+    float: right;
+}
+
+
+.neosliveformnode-placholder {
+
+    background-color: rgba(210, 210, 210, 0.51) !important;
+    text-decoration: none !important;
+    color: black !important;
+    border-radius: 4px;
+    padding: 0px;
+    display: inline-block !important;
+    padding-left: 4px;
+    padding-right: 4px;
+
+}
+
+.neosliveformnode-placholder:before, .neosliveformnode-placholder:after {
+    display: none !important;
+}
+
+.neoslive-placeholder-label:hover {
+    opacity: 0.8;
+    background-color: rgba(212, 212, 212, 0.03);
+    cursor:not-allowed;
+}
+.neoslive-placeholder-key  {
+    display:none !important;
+
+}
+
+
+.neoslive-nodeform-label {
+    background-color: rgba(210, 210, 210, 0.51) !important;
+    text-decoration: none !important;
+    color: white !important;
+    border-radius: 4px;
+    padding: 0px;
+    display: block !important;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 20px;
+    width: 50%;
+    max-width: 100px;
+    border-radius: 20px;
+    margin: auto;
+    text-align: center;
+    line-height: 20px;
+}
+
+
+div[typeof='typo3:Neoslive.Nodeform:Or'], div[typeof='typo3:Neoslive.Nodeform:And'] {
+    font-size: 12px;
+    width: 100%;
+    padding-left:40px;
+    margin: auto;
+
+}
+.neoslive-nodeform-label-or, .neoslive-nodeform-label-and {
+
+    max-width:40px;
+    margin-bottom:0px;
+    margin-top:15px;
+}
+
+div[typeof='typo3:Neoslive.Nodeform:CompareUserInput'] {
+    font-size: 12px;
+    width: 50%;
+    margin: auto;
+    border-bottom: 1px dashed #D2D2D2;
+}
+
+
+optgroup[typeof='typo3:Neoslive.Nodeform:And'], optgroup[typeof='typo3:Neoslive.Nodeform:Or'] {
+    border-left: 2px dotted gray;
+    min-height: 40px;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding-left: 10px;
+    margin-left: 35px;
+}
+
+option[typeof='typo3:Neoslive.Nodeform:CompareUserInput'] {
+    margin-left:0px;
+}
+
+optgroup[typeof='typo3:Neoslive.Nodeform:Constraints'], optgroup[typeof='typo3:Neoslive.Nodeform:ConstraintsInFormSelect'] {
+    margin-left:15px;
+    border-left: 2px dotted gray;
+    min-height: 40px;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+optgroup[typeof='typo3:Neoslive.Nodeform:Constraints']:before, optgroup[typeof='typo3:Neoslive.Nodeform:ConstraintsInFormSelect']:before {
+    content: "\F128";
+    display: block;
+    font-size: 12px;
+    font-family: FontAwesome;
+    float: left;
+    margin-left: -35px;
+    color: gray;
+}
+
+div[typeof='typo3:Neoslive.Nodeform:Then'], div[typeof='typo3:Neoslive.Nodeform:ThenInFormSelect'],  optgroup.neoslive-node-form-then {
+
+    border-left: 2px dotted green;
+    min-height: 40px;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding-left: 10px;
+    margin-left: 20px;
+
+}
+div[typeof='typo3:Neoslive.Nodeform:Then']:before, div[typeof='typo3:Neoslive.Nodeform:ThenInFormSelect']:before,  optgroup.neoslive-node-form-then:before {
+
+     content: "\F164";
+     display: block;
+     font-size: 12px;
+     font-family: FontAwesome;
+     float: left;
+     margin-left: -35px;
+     color: green;
+
+}
+
+div[typeof='typo3:Neoslive.Nodeform:Else'],div[typeof='typo3:Neoslive.Nodeform:ElseInFormSelect'], optgroup.neoslive-node-form-else {
+    border-left: 2px dotted red;
+    min-height: 40px;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding-left: 10px;
+    margin-left: 20px;
+
+}
+div[typeof='typo3:Neoslive.Nodeform:Else']:before,div[typeof='typo3:Neoslive.Nodeform:ElseInFormSelect']:before,  optgroup.neoslive-node-form-else:before {
+    content: "\F165";
+    display: block;
+    font-size: 12px;
+    font-family: FontAwesome;
+    float: left;
+    margin-left: -35px;
+    color: red;
+}
+
+
+.neoslive-off *,.neoslive-off2 * {
+display: none;
+}
+
+
+
+div[typeof='typo3:Neoslive.Nodeform:Condition'] {
+    margin-bottom:15px;
+}
+
+div[typeof='typo3:Neoslive.Nodeform:Condition'], div[typeof='typo3:Neoslive.Nodeform:ConditionInFormSelect']  {
+   float:left;
+   width:100%;
+}
+
+div[typeof='typo3:Neoslive.Nodeform:Condition'] > .neoslive-nodeform-label, div[typeof='typo3:Neoslive.Nodeform:ConditionInFormSelect'] > .neoslive-nodeform-label {
+   float: right;
+   margin-right:15px;
+}
+
+.neoslive-nodeform-label {
+    /* text-align: center; */
+    /* padding-left:0; */
+    padding-right:0;
+}
+.neoslive-nodeform-label > .neos-empty-contentcollection-overlay, div[typeof='typo3:Neoslive.Nodeform:FormSelectOption'] > .neos-empty-contentcollection-overlay {
+ display: none !important;
+}
+
+
+.neoslive-nodeform-label-then, .neoslive-nodeform-label-else {
+    margin:0;
+    left:0;
+    max-width: 60px;
+    margin-bottom: 10px;
+}
+
+.neoslive-nodeform-label-operand {
+    font-weight:bold;
+}
+
+
+div[typeof='typo3:Neoslive.Nodeform:Constraints'], span[typeof='typo3:Neoslive.Nodeform:Constraints'] {
+   margin-left:30px;
+   width:100%;
+   float: right !important;
+   margin: auto;
+   display: block !important;
+   float: right !important;
+}
+

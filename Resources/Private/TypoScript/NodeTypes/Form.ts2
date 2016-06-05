@@ -1,0 +1,10 @@
+
+# App elements
+prototype(Neoslive.Nodeform:Form) < prototype(Neoslive.Nodeform:AppMixin) {
+    # We have to define contentElementWrapping, because we do not inherit from TYPO3.Neos:Content
+    @process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+}
+
+prototype(Neoslive.Nodeform:FormSelectCollection) < prototype(TYPO3.Neos:ContentCollection) {
+
+}

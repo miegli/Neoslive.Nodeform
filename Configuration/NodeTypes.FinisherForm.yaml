@@ -1,0 +1,29 @@
+# finisher form
+'Neoslive.Nodeform:FinisherForm':
+  superTypes:
+    'Neoslive.Nodeform:AppFormElementsMixin': true
+    'Neoslive.Nodeform:AppFormFinisherMixin': true
+    'Neoslive.Nodeform:Form': true
+  ui:
+    label: i18n
+    group: neoslivenodeformfinisher
+    inlineEditable: true
+  properties:
+    steps:
+      ui:
+        inspector:
+          group: hidden
+    cssin:
+      ui:
+        inspector:
+          group: hidden
+    cssout:
+      ui:
+        inspector:
+          group: hidden
+    markup:
+      ui:
+        inspector:
+          group: hidden
+
+

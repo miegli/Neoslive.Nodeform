@@ -1,0 +1,194 @@
+# form
+'Neoslive.Nodeform:Form':
+  superTypes:
+    'Neoslive.Nodeform:AppMixin': true
+  ui:
+    label: i18n
+    icon: icon-th-list
+    inspector:
+      groups:
+        settings:
+          label: i18n
+          position: 10
+  properties:
+    text:
+      type: string
+      defaultValue: 'Form'
+      ui:
+        label: i18n
+        reloadIfChanged: false
+        inspector:
+          group: settings
+    steps:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: i18n
+        reloadIfChanged: false
+        inspector:
+          group: settings
+    cssin:
+      type: string
+      defaultValue: ''
+      ui:
+        label: i18n
+        reloadIfChanged: false
+        inspector:
+          group: settings
+    cssout:
+      type: string
+      group: settings
+      defaultValue: ''
+      ui:
+        label: i18n
+        reloadIfChanged: false
+        inspector:
+          group: settings
+    markup:
+      type: string
+      defaultValue: Bootstrap
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: settings
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              Bootstrap:
+                label: Bootstrap
+  childNodes:
+    main:
+      constraints:
+        nodeTypes:
+          'Neoslive.Nodeform:AppFormElementsMixin': true
+          'Neoslive.Nodeform:AppConditionsMixin': true
+          'TYPO3.Neos:Content': true
+          'Neoslive.Nodeform:Form': false
+          'Neoslive.Nodeform:ConditionInFormSelect': false
+          'Neoslive.Nodeform:FinisherForm': true
+          'Neoslive.Nodeform:FinisherMail': true
+
+# form input
+'Neoslive.Nodeform:FormInput':
+  superTypes:
+    'Neoslive.Nodeform:AppFormElementsMixin': true
+    'Neoslive.Nodeform:AppFormElementsCompareableMixin': true
+  ui:
+    label: i18n
+    icon: icon-pencil
+  properties:
+    text:
+      type: string
+      defaultValue: 'enter label'
+
+
+# form button
+'Neoslive.Nodeform:FormButton':
+  superTypes:
+    'Neoslive.Nodeform:AppFormElementsMixin': true
+    'Neoslive.Nodeform:AppFormElementsCompareableMixin': true
+  ui:
+    label: i18n
+    icon: icon-save
+    inspector:
+      groups:
+        settings:
+          label: i18n
+  properties:
+    text:
+      type: string
+      defaultValue: 'Submit'
+    command:
+      type: string
+      defaultValue: Submit
+      ui:
+        label: i18n
+        reloadIfChanged: false
+        inspector:
+          group: settings
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              Submit:
+                label: Submit
+
+
+# form select collection
+'Neoslive.Nodeform:FormSelectCollection':
+  superTypes:
+    'TYPO3.Neos:ContentCollection': true
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:FormSelectOption': true
+      'Neoslive.Nodeform:Condition': false
+      'Neoslive.Nodeform:ConditionInFormSelect': true
+      'Neoslive.Nodeform:AppFormElementsMixin': false
+      'TYPO3.Neos.NodeTypes:Column': true
+
+
+# form select
+'Neoslive.Nodeform:FormSelect':
+  superTypes:
+    'Neoslive.Nodeform:AppFormElementsMixin': true
+    'Neoslive.Nodeform:AppFormElementsCompareableMixin': true
+  ui:
+    label: i18n
+    icon: icon-list
+    inspector:
+      groups:
+        settings:
+          label: i18n
+  properties:
+    text:
+      type: string
+      defaultValue: 'Label'
+    type:
+      type: string
+      defaultValue: checkbox
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: settings
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              checkbox:
+                label: checkbox
+              dropdown:
+                label: dropdown
+    multiple:
+      type: boolean
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: settings
+  childNodes:
+    main:
+      type: 'Neoslive.Nodeform:FormSelectCollection'
+
+
+# form select option
+'Neoslive.Nodeform:FormSelectOption':
+  superTypes:
+    'Neoslive.Nodeform:AppFormElementsMixin': true
+    'Neoslive.Nodeform:AppFormElementsCompareableMixin': true
+  ui:
+    label: i18n
+    icon: icon-check
+    inspector:
+      groups:
+        settings:
+          label: i18n
+  properties:
+    text:
+      type: string
+      defaultValue: 'Label'
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: settings

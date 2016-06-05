@@ -1,0 +1,41 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+{namespace nl=Neoslive\Nodeform\ViewHelpers}
+<f:if condition="{neos:rendering.inBackend()}">
+<f:then>
+<div {attributes -> f:format.raw()}>
+    <f:if condition="{node.nodedata.properties.name} != ''">
+        <f:then>
+        <f:if condition="{node.nodedata.properties.mail} != ''">
+            <f:then>
+                <div class="neoslive-nodeform-label neoslive-nodeform-label-and neoslive-contentelement neoslive-nodeform-label-mail">
+                    <span>{neos:contentElement.editable(property: 'name',tag:'span')} &lt;{neos:contentElement.editable(property: 'mail',tag:'span')}&gt;</span>
+                </div>
+            </f:then>
+            <f:else>
+
+            </f:else>
+        </f:if>
+        </f:then>
+        <f:else>
+            <f:if condition="{node.nodedata.properties.maildynamic} == ''">
+            <div class="neoslive-nodeform-label neoslive-nodeform-label-and neoslive-contentelement neoslive-nodeform-label-mail">
+                <span>{neos:contentElement.editable(property: 'name',tag:'span')} &lt;{neos:contentElement.editable(property: 'mail',tag:'span')}&gt;</span>
+            </div>
+            </f:if>
+
+        </f:else>
+    </f:if>
+    <f:if condition="{node.nodedata.properties.namedynamic}">
+        <f:if condition="{node.nodedata.properties.maildynamic} != ''">
+    <div class="neoslive-nodeform-label neoslive-nodeform-label-and neoslive-contentelement neoslive-nodeform-label-mail">
+
+        <f:for each="{node.nodedata.properties.namedynamic}" as="i"><span ng-bind="dataLabels['{i}']"></span> </f:for> &lt;<span ng-bind="dataLabels['{node.nodedata.properties.maildynamic}']"></span>&gt;</span>
+
+    </div>
+        </f:if>
+    </f:if>
+</div>
+</f:then>
+<f:else><nl:FinisherMail node="{node}" action="addRecipient"/></f:else>
+</f:if>

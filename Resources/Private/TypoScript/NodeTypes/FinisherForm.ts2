@@ -1,0 +1,3 @@
+prototype(Neoslive.Nodeform:FinisherForm) < prototype(Neoslive.Nodeform:AppMixin) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/FinisherForm.html'
+}

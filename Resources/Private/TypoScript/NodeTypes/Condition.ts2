@@ -1,0 +1,73 @@
+
+
+prototype(Neoslive.Nodeform:Then) < prototype(Neoslive.Nodeform:AppElementsContentCollection) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Then.html'
+}
+
+prototype(Neoslive.Nodeform:ThenInFormSelect) < prototype(Neoslive.Nodeform:AppElementsContentCollection) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Then.html'
+}
+
+prototype(Neoslive.Nodeform:Else) < prototype(Neoslive.Nodeform:AppElementsContentCollection) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Else.html'
+}
+
+
+prototype(Neoslive.Nodeform:ElseInFormSelect) < prototype(Neoslive.Nodeform:AppElementsContentCollection) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Else.html'
+
+}
+
+prototype(Neoslive.Nodeform:Constraints) < prototype(Neoslive.Nodeform:AppElementsContentCollection) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Constraints.html'
+}
+
+prototype(Neoslive.Nodeform:ConstraintsInFormSelect) < prototype(Neoslive.Nodeform:AppElementsContentCollection) {
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/ConstraintsInFormSelect.html'
+}
+
+
+
+prototype(Neoslive.Nodeform:ConditionInFormSelect) {
+
+    nodes = ${Neoslive.Nodeform.getElements(node)}
+    renderer = TYPO3.Neos:ContentCase
+    rendererFrontend = TYPO3.Neos:ContentCollectionRenderer
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Condition.html'
+}
+
+prototype(Neoslive.Nodeform:Condition) {
+    nodes = ${Neoslive.Nodeform.getElements(node)}
+    renderer = TYPO3.Neos:ContentCase
+    rendererFrontend = TYPO3.Neos:ContentCollectionRenderer
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Condition.html'
+}
+
+prototype(Neoslive.Nodeform:And) < prototype(Neoslive.Nodeform:AppElementsMixin) {
+    //parent = ${q(node).closest('[instanceof Neoslive.Nodeform:ConditionInFormSelect]').parent().parent().get(0).nodeData.Identifier == q(node).closest('[instanceof Neoslive.Nodeform:FormSelect]').get(0).nodeData.Identifier ? q(node).closest('[instanceof Neoslive.Nodeform:FormSelect]').get(0) : q(node).parent().parent().get(0)}
+    parent = ${Neoslive.Nodeform.getMostParent(node,['Neoslive.Nodeform:FormSelect','Neoslive.Nodeform:ConditionInFormSelect'])}
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/And.html'
+    renderer = TYPO3.Neos:ContentCase
+}
+
+prototype(Neoslive.Nodeform:Or) < prototype(Neoslive.Nodeform:AppElementsMixin) {
+    //parent = ${q(node).closest('[instanceof Neoslive.Nodeform:ConditionInFormSelect]').parent().parent().get(0).nodeData.Identifier == q(node).closest('[instanceof Neoslive.Nodeform:FormSelect]').get(0).nodeData.Identifier ? q(node).closest('[instanceof Neoslive.Nodeform:FormSelect]').get(0) : q(node).parent().parent().get(0)}
+    parent = ${Neoslive.Nodeform.getMostParent(node,['Neoslive.Nodeform:FormSelect','Neoslive.Nodeform:ConditionInFormSelect'])}
+    templatePath = 'resource://Neoslive.Nodeform/Private/Templates/NodeTypes/Or.html'
+    renderer = TYPO3.Neos:ContentCase
+}
+
+
+prototype(Neoslive.Nodeform:AndCollection) < prototype(TYPO3.Neos:ContentCollection) {
+
+}
+
+prototype(Neoslive.Nodeform:OrCollection) < prototype(TYPO3.Neos:ContentCollection) {
+
+}
+
+
+prototype(Neoslive.Nodeform:ConditionCollection) < prototype(TYPO3.Neos:ContentCollection) {
+
+}
+

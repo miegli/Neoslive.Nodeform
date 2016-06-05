@@ -1,0 +1,91 @@
+# compare user input
+'Neoslive.Nodeform:CompareUserInput':
+  superTypes:
+    'Neoslive.Nodeform:CompareMixin': true
+  ui:
+    label: i18n
+    group: neoslivenodeformcompare
+    inlineEditable: true
+    icon: icon-filter
+    inspector:
+      groups:
+        compare:
+          label: i18n
+          position: 10
+  constraints:
+    nodeTypes:
+      '*': false
+  properties:
+    operand:
+      type: string
+      ui:
+        label: 'Operand'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'compare'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+           placeholder: 'Select the Form identifier'
+           dataSourceIdentifier: 'neoslive-form-conditioncontraints'
+    value:
+      type: string
+      defaultValue: ''
+      ui:
+        reloadIfChanged: true
+        label: i18n
+        inspector:
+          group: compare
+          position: 951
+    valuekey:
+      type: string
+      defaultValue: ''
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: compare
+          position: 950
+          editor: 'Content/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            dataSourceIdentifier: 'neoslive-form-conditionvalues'
+            allowEmpty: TRUE
+    operator:
+      type: string
+      defaultValue: equal
+      ui:
+        label: Operator
+        reloadIfChanged: false
+        inspector:
+          group: general
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              equal:
+                label: equal
+              like:
+                label: like
+              greaterThanOrEqual:
+                label: greaterThanOrEqual
+              greaterThan:
+                label: greaterThan
+              lessThan:
+                label: lessThan
+              in:
+                label: in
+              notequal:
+                label: notequal
+    calculation:
+      type: string
+      defaultValue: default
+      ui:
+        label: Calculation
+        reloadIfChanged: false
+        inspector:
+          group: compare
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              default:
+                label: default
+              sum:
+                label: sum

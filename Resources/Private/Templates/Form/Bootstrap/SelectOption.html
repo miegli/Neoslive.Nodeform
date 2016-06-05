@@ -1,0 +1,86 @@
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+{namespace neos=TYPO3\Neos\ViewHelpers}
+
+
+
+<f:if condition="{parent}">
+    <f:then>
+
+        <f:if condition="{parent.nodeType.name} === 'Neoslive.Nodeform:FormSelect'">
+            <f:then>
+
+
+
+                <f:switch expression="{parent.properties.type}">
+
+                    <f:case value="dropdown">
+
+                        <f:render section="option" arguments="{_all}"/>
+
+                    </f:case>
+
+                    <f:defaultCase>
+
+                        <f:if condition="{parent.properties.multiple}">
+                            <f:then>
+
+                                <div class="test checkbox">
+                                    <f:render section="checkbox" arguments="{_all}"/>
+                                </div>
+                            </f:then>
+                            <f:else>
+                                <div class="radio">
+                                    <f:render section="radio" arguments="{_all}"/>
+                                </div>
+                            </f:else>
+                        </f:if>
+
+
+
+                    </f:defaultCase>
+
+                </f:switch>
+
+            </f:then>
+            <f:else>
+
+
+                    <div class="checkbox">
+                        <f:render section="checkbox" arguments="{_all}"/>
+                    </div>
+
+
+            </f:else>
+        </f:if>
+
+    </f:then>
+    <f:else>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="node-{node.Identifier}" value="{node.Identifier}" class="neoslive-nodeform-checkboxsingle" data-node-id="{node.Identifier}" placeholder="{node.properties.placeholder}" ng-model="datahelper['{node.Identifier}']" ng-change="changed('{node.Identifier}',null,'checkboxsingle');">{neos:contentElement.editable(property: 'text',tag:'span')}
+                </label>
+            </div>
+
+    </f:else>
+</f:if>
+
+
+<f:section name="radio">
+    <label for="node-{node.Identifier}">
+        <input  type="radio" id="node-{node.Identifier}" value="{node.Identifier}" data-node-id="{node.Identifier}" ng-model="data['{parent.identifier}']" ng-change="changed('{parent.Identifier}',null,'radio');">{neos:contentElement.editable(property: 'text',tag:'span')}
+    </label>
+</f:section>
+
+
+<f:section name="checkbox">
+    <label for="node-{node.Identifier}">
+        <input type="checkbox" id="node-{node.Identifier}" data-parent-node-id="{parent.Identifier}" value="true" data-node-id="{node.Identifier}" placeholder="{node.properties.placeholder}" ng-model="data['{node.Identifier}']" ng-change="changed('{node.Identifier}','{parent.Identifier}','checkbox');">{neos:contentElement.editable(property: 'text',tag:'span')}
+    </label>
+</f:section>
+
+
+<f:section name="option">
+                  <option rel="typo3:content-collection" data-node-id="{node.Identifier}" ng-model="data['{node.Identifier}']" value="{node.Identifier}">{neos:contentElement.editable(property: 'text',tag:'span')}</option>
+</f:section>
+

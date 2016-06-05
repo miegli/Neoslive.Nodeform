@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Neoslive.Nodeform" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="ui.label" xml:space="preserve">
+				<source>Recipient</source>
+			</trans-unit>
+			<trans-unit id="groups.recipientstatic" xml:space="preserve">
+				<source>recipient 1 (static)</source>
+			</trans-unit>
+			<trans-unit id="groups.recipientdynamic" xml:space="preserve">
+				<source>recipient 2 (dynamic)</source>
+			</trans-unit>
+			<trans-unit id="groups.senderstatic" xml:space="preserve">
+				<source>sender 1 (static)</source>
+			</trans-unit>
+			<trans-unit id="groups.senderdynamic" xml:space="preserve">
+				<source>sender 2 (dynamic)</source>
+			</trans-unit>
+			<trans-unit id="properties.mail" xml:space="preserve">
+				<source>Mail</source>
+			</trans-unit>
+			<trans-unit id="properties.name" xml:space="preserve">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="properties.maildynamic" xml:space="preserve">
+				<source>Mail</source>
+			</trans-unit>
+			<trans-unit id="properties.namedynamic" xml:space="preserve">
+				<source>Name</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

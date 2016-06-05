@@ -1,0 +1,27 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+{namespace nl=Neoslive\Nodeform\ViewHelpers}
+
+<div{attributes -> f:format.raw()}>
+
+<f:if condition="{nodes}">
+
+    <div data-neoslive-collapsed="true" novalidate="novalidate" id="form-<f:format.raw>{node.identifier}</f:format.raw>"
+         data-formnodeid="<f:format.raw>{node.identifier}</f:format.raw>" class="neoslive-nodeForm-angular-wrapper neoslive-nodeForm-angular-wrapper-finisher"
+         data-neoslive-in-css="{node.properties.cssin}" data-neoslive-out-css="{node.properties.cssout}">
+
+        <f:if condition="{neos:rendering.inBackend()}">
+            <span class="neoslive-nodeform-collapse-label">{node.properties.text} (<f:translate id="ui.label" source="NodeTypes/FinisherForm" package="Neoslive.Nodeform"/>)</span>
+        </f:if>
+        <nl:form node="{node}">
+            <f:for each="{nodes}" as="item">
+                <div id="{item.Identifier}" >
+                     <ts:render path="renderer" context="{node: item}"/>
+                </div>
+            </f:for>
+        </nl:form>
+    </div>
+
+</f:if>
+
+</div>

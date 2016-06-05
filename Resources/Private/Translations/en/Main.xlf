@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Neoslive.Nodeform" source-language="en" datatype="plaintext">
+		<body>
+			<!-- node types -->
+			<trans-unit id="nodeTypes.groups.neoslivenodeform" xml:space="preserve">
+				<source>Node based app</source>
+			</trans-unit>
+			<trans-unit id="nodeTypes.groups.neoslivenodeformform" xml:space="preserve">
+				<source>Node Form</source>
+			</trans-unit>
+			<trans-unit id="nodeTypes.groups.neoslivenodeformcompare" xml:space="preserve">
+				<source>Compare</source>
+			</trans-unit>
+			<trans-unit id="nodeTypes.groups.neoslivenodeformlogicaloparetor" xml:space="preserve">
+				<source>Logical operators</source>
+			</trans-unit>
+			<trans-unit id="nodeTypes.groups.neoslivenodeformfinisher" xml:space="preserve">
+				<source>Node Form Finisher</source>
+			</trans-unit>
+			<trans-unit id="nodeTypes.groups.neoslivenodeformfinishermail" xml:space="preserve">
+				<source>Node Form E-Mail Finisher</source>
+			</trans-unit>
+			<trans-unit id="insert.placeholder" xml:space="preserve">
+				<source>Placeholder</source>
+			</trans-unit>
+			<trans-unit id="insert.if" xml:space="preserve">
+				<source>If</source>
+			</trans-unit>
+			<trans-unit id="insert.constraints" xml:space="preserve">
+				<source>Constraints</source>
+			</trans-unit>
+			<trans-unit id="then" xml:space="preserve">
+				<source>Then</source>
+			</trans-unit>
+			<trans-unit id="else" xml:space="preserve">
+				<source>else</source>
+			</trans-unit>
+			<trans-unit id="and" xml:space="preserve">
+				<source>and</source>
+			</trans-unit>
+			<trans-unit id="or" xml:space="preserve">
+				<source>or</source>
+			</trans-unit>
+			<trans-unit id="equal" xml:space="preserve">
+				<source>=</source>
+			</trans-unit>
+			<trans-unit id="1" xml:space="preserve">
+				<source>yes</source>
+			</trans-unit>
+			<trans-unit id="0" xml:space="preserve">
+				<source>no</source>
+			</trans-unit>
+			<trans-unit id="instruction.text" xml:space="preserve">
+				<source>Bitte klicken Sie hier, um die Seite neu zuladen bevor Sie weiterfahren. Die notwendigen Javascript-Dateien wurden noch nicht initialisiert.</source>
+			</trans-unit>
+			<trans-unit id="error.notinform" xml:space="preserve">
+				<source>Error, please place this element into a "Form" (Node based app).</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,55 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+{namespace nl=Neoslive\Nodeform\ViewHelpers}
+
+
+
+
+<f:if condition="{neos:rendering.inBackend()}">
+        <span class="neoslive-nodeform-welcome" style="cursor:pointer" onClick="location.reload();">
+            <span style="display: block;background-color: #00B5FF !important;color: white !important;padding: 20px;margin: 20px;cursor: pointer;">
+                <div style="font-size:13px !important;color:white!important;"><f:translate id="instruction.text" source="Main" package="Neoslive.Nodeform"/></div>
+            </span>
+        </span>
+</f:if>
+
+
+<f:if condition="{neos:rendering.inBackend()}">
+    <f:then></f:then>
+    <f:else>
+        <f:if condition="{node.properties.steps}">
+            <nl:FormSteps node="{node}">
+                <ul class="neoslive-nodeform-steps" id="steps-{node.Identifier}" style="display: block;float:left;clear: both;width:100%;padding:0;">
+                    <f:for each="{stepNodes}" as="step" iteration="iterator">
+                        <f:if condition="{step.current}">
+                            <f:then>
+                                <li class="neoslive-nodeform-step neoslive-node-form-step-current">{step.name}</li>
+                            </f:then>
+                            <f:else>
+                                <li class="neoslive-nodeform-step neoslive-node-form-step">{step.name}</li>
+                            </f:else>
+                        </f:if>
+
+                    </f:for>
+                </ul>
+            </nl:FormSteps>
+        </f:if>
+    </f:else>
+</f:if>
+
+
+<f:if condition="{nodes}">
+
+    <div novalidate="novalidate" id="form-<f:format.raw>{node.identifier}</f:format.raw>" data-formnodeid="<f:format.raw>{node.identifier}</f:format.raw>" class="neoslive-nodeForm-angular-wrapper" data-neoslive-in-css="{node.properties.cssin}" data-neoslive-out-css="{node.properties.cssout}">
+
+
+        <nl:form node="{node}">
+               <f:for each="{nodes}" as="item">
+                   <ts:render path="renderer" context="{node: item}"/>
+               </f:for>
+        </nl:form>
+   </div>
+
+    <nl:GetHash node="{node}"/>
+</f:if>
+

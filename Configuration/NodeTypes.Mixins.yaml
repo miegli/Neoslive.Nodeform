@@ -1,0 +1,108 @@
+# Neos node override
+'TYPO3.Neos:Node':
+  constraints:
+    nodeTypes:
+      'Neoslive.Nodeform:ContentMixin': false
+      'Neoslive.Nodeform:FinisherForm': false
+      'Neoslive.Nodeform:FinisherMail': false
+      'Neoslive.Nodeform:ConditionInFinisherMail': false
+
+
+# Neos content collection override
+'TYPO3.Neos:ContentCollection':
+  constraints:
+    nodeTypes:
+      'Neoslive.Nodeform:AppMixin': true
+
+
+
+# Content mixin
+'Neoslive.Nodeform:ContentMixin':
+  superTypes:
+    'TYPO3.Neos:Content': true
+
+
+# App mixxin
+'Neoslive.Nodeform:AppMixin':
+  superTypes:
+    'TYPO3.Neos:Content': true
+  abstract: true
+  ui:
+    group: neoslivenodeform
+    inlineEditable: true
+  constraints:
+    nodeTypes:
+      '*': false
+  childNodes:
+    main:
+      type: 'Neoslive.Nodeform:ContentCollection'
+
+
+# App elements mixxin
+'Neoslive.Nodeform:AppElementsMixin':
+  superTypes:
+    'Neoslive.Nodeform:ContentMixin': true
+  abstract: true
+  ui:
+    group: neoslivenodeform
+    inlineEditable: true
+  constraints:
+    nodeTypes:
+      '*': false
+
+# default content collection
+'Neoslive.Nodeform:ContentCollection':
+  superTypes:
+    'TYPO3.Neos:ContentCollection': true
+  constraints:
+    nodeTypes:
+      'Neoslive.Nodeform:Form': false
+
+# condition mixin
+'Neoslive.Nodeform:AppConditionsMixin':
+  superTypes:
+    'Neoslive.Nodeform:AppElementsMixin': true
+  abstract: true
+  ui:
+    group: neoslivenodeform
+    inlineEditable: true
+  constraints:
+    nodeTypes:
+      '*': false
+
+# compare mixin
+'Neoslive.Nodeform:CompareMixin':
+  superTypes:
+    'Neoslive.Nodeform:AppElementsMixin': true
+    'Neoslive.Nodeform:ContentMixin': true
+  abstract: true
+  ui:
+    group: neoslivenodeform
+    inlineEditable: true
+  constraints:
+    nodeTypes:
+      '*': false
+
+# form elements mixin
+'Neoslive.Nodeform:AppFormElementsMixin':
+  superTypes:
+    'Neoslive.Nodeform:AppElementsMixin': true
+  abstract: true
+  ui:
+    group: neoslivenodeformform
+    inlineEditable: true
+  constraints:
+    nodeTypes:
+      '*': false
+
+# form elements comparable mixin
+'Neoslive.Nodeform:AppFormElementsCompareableMixin':
+  abstract: true
+  superTypes:
+    'Neoslive.Nodeform:ConstraintsMixin': true
+'Neoslive.Nodeform:ConstraintsMixin':
+  abstract: true
+
+# finisher mixin
+'Neoslive.Nodeform:AppFormFinisherMixin':
+  abstract: true

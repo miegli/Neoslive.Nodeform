@@ -1,0 +1,217 @@
+# Condition
+'Neoslive.Nodeform:Condition':
+  superTypes:
+    'Neoslive.Nodeform:AppConditionsMixin': true
+  ui:
+    label: i18n
+    icon: icon-flag
+    group: neoslivenodeformlogicaloparetor
+  constraints:
+    nodeTypes:
+      '*': false
+  childNodes:
+    constraints:
+      type: 'Neoslive.Nodeform:Constraints'
+    then:
+      type: 'Neoslive.Nodeform:Then'
+    else:
+      type: 'Neoslive.Nodeform:Else'
+
+
+# condition in form select
+'Neoslive.Nodeform:ConditionInFormSelect':
+  superTypes:
+    'Neoslive.Nodeform:AppConditionsMixin': true
+
+  ui:
+    label: i18n
+    icon: icon-flag
+    group: neoslivenodeformlogicaloparetor
+  constraints:
+    nodeTypes:
+      '*': false
+  childNodes:
+    constraints:
+      type: 'Neoslive.Nodeform:ConstraintsInFormSelect'
+    then:
+      type: 'Neoslive.Nodeform:ThenInFormSelect'
+    else:
+      type: 'Neoslive.Nodeform:ElseInFormSelect'
+
+
+# then
+'Neoslive.Nodeform:Then':
+  superTypes:
+    'Neoslive.Nodeform:ContentMixin': true
+    'TYPO3.Neos:ContentCollection': true
+  ui:
+    label: i18n
+    group: neoslivenodeformlogicaloparetor
+    inlineEditable: true
+    icon: icon-thumbs-up-alt
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:AppFormElementsMixin': true
+      'Neoslive.Nodeform:Condition': true
+      'TYPO3.Neos:Content': true
+      'Neoslive.Nodeform:FinisherForm': true
+      'Neoslive.Nodeform:FinisherMail': true
+      'Neoslive.Nodeform:Form': false
+
+
+# then in form select
+'Neoslive.Nodeform:ThenInFormSelect':
+  superTypes:
+    'Neoslive.Nodeform:ContentMixin': true
+    'TYPO3.Neos:ContentCollection': true
+  ui:
+    label: i18n
+    group: neoslivenodeformlogicaloparetor
+    inlineEditable: true
+    icon: icon-thumbs-up-alt
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:AppFormElementsMixin': false
+      'Neoslive.Nodeform:Condition': false
+      'TYPO3.Neos:Content': false
+      'Neoslive.Nodeform:FormSelectOption': true
+      'Neoslive.Nodeform:AppFormFinisherMixin': false
+
+
+# else
+'Neoslive.Nodeform:Else':
+  superTypes:
+    'Neoslive.Nodeform:ContentMixin': true
+    'TYPO3.Neos:ContentCollection': true
+  ui:
+    label: i18n
+    group: neoslivenodeformlogicaloparetor
+    inlineEditable: true
+    icon: icon-thumbs-down-alt
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:AppFormElementsMixin': true
+      'Neoslive.Nodeform:Condition': true
+      'TYPO3.Neos:Content': true
+      'Neoslive.Nodeform:FinisherForm': true
+      'Neoslive.Nodeform:FinisherMail': true
+      'Neoslive.Nodeform:Form': false
+
+
+# else in form select
+'Neoslive.Nodeform:ElseInFormSelect':
+  superTypes:
+    'Neoslive.Nodeform:ContentMixin': true
+    'TYPO3.Neos:ContentCollection': true
+  ui:
+    label: i18n
+    group: neoslivenodeformlogicaloparetor
+    inlineEditable: true
+    icon: icon-thumbs-down-alt
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:AppFormElementsMixin': false
+      'Neoslive.Nodeform:Condition': false
+      'TYPO3.Neos:Content': false
+      'Neoslive.Nodeform:FormSelectOption': true
+      'Neoslive.Nodeform:AppFormFinisherMixin': false
+
+
+# constraints
+'Neoslive.Nodeform:Constraints':
+  superTypes:
+    'Neoslive.Nodeform:ContentMixin': true
+    'Neoslive.Nodeform:ContentCollection': true
+  ui:
+    label: i18n
+    group: neoslivenodeformlogicaloparetor
+    inlineEditable: true
+    icon: icon-question
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:And': true
+      'Neoslive.Nodeform:Or': true
+      'Neoslive.Nodeform:CompareMixin': true
+      'Neoslive.Nodeform:AppFormElementsMixin': false
+      'Neoslive.Nodeform:Condition': false
+      'Neoslive.Nodeform:Form': false
+
+
+# contraints in form select
+'Neoslive.Nodeform:ConstraintsInFormSelect':
+  superTypes:
+    'Neoslive.Nodeform:Constraints': true
+    'Neoslive.Nodeform:ContentMixin': true
+    'TYPO3.Neos:ContentCollection': true
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:And': true
+      'Neoslive.Nodeform:Or': true
+      'Neoslive.Nodeform:AppFormElementsMixin': false
+
+
+
+# AND
+'Neoslive.Nodeform:And':
+  superTypes:
+    'Neoslive.Nodeform:CompareMixin': true
+  ui:
+    label: i18n
+    group: neoslivenodeformlogicaloparetor
+    inlineEditable: true
+    icon: icon-double-angle-right
+  childNodes:
+    main:
+      type: 'Neoslive.Nodeform:AndCollection'
+
+
+# AND collection
+'Neoslive.Nodeform:AndCollection':
+  superTypes:
+    'TYPO3.Neos:ContentCollection': true
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:And': false
+      'Neoslive.Nodeform:Or': true
+      'Neoslive.Nodeform:CompareMixin': true
+      'Neoslive.Nodeform:OrInFormSelect': false
+      'Neoslive.Nodeform:AppFormElementsMixin': false
+      'Neoslive.Nodeform:Condition': false
+
+
+# OR
+'Neoslive.Nodeform:Or':
+  superTypes:
+    'Neoslive.Nodeform:CompareMixin': true
+  ui:
+    label: i18n
+    group: neoslivenodeformlogicaloparetor
+    inlineEditable: true
+    icon: icon-double-angle-right
+  childNodes:
+    main:
+      type: 'Neoslive.Nodeform:OrCollection'
+
+
+# OR collection
+'Neoslive.Nodeform:OrCollection':
+  superTypes:
+    'TYPO3.Neos:ContentCollection': true
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neoslive.Nodeform:And': true
+      'Neoslive.Nodeform:Or': false
+      'Neoslive.Nodeform:CompareMixin': true
+      'Neoslive.Nodeform:OrInFormSelect': false
+      'Neoslive.Nodeform:AppFormElementsMixin': false
+      'Neoslive.Nodeform:Condition': false
+
+

@@ -1,0 +1,45 @@
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+{namespace neos=TYPO3\Neos\ViewHelpers}
+
+
+<div class="form-group">
+        <label for="node-{node.Identifier}">{neos:contentElement.editable(property: 'text',tag:'span')}</label>
+
+        <f:switch expression="{node.properties.type}">
+
+            <f:case value="dropdown">
+
+                <select class="form-control" {f:if(condition: node.properties.multiple, then:'multiple', else: '')} data-node-id="{node.Identifier}" ng-model="data['{node.identifier}']" ng-change="changed('{node.Identifier}',false,'select');">
+                   <f:render section="selectBody" arguments="{nodes: nodes}"/>
+                </select>
+
+            </f:case>
+
+            <f:case value="checkbox">
+
+                <f:if condition="{node.properties.multiple}">
+                    <f:then>
+                       <div class="neoslive-nodeform-select-parent-wrapper" data-node-id="{node.Identifier}" ng-model="data['{node.identifier}']" ng-init="data['{node.identifier}'] = {}">
+                           <f:render section="selectBody" arguments="{nodes: nodes}"/>
+                       </div>
+                    </f:then>
+                    <f:else>
+                        <div data-node-id="{node.Identifier}">
+                            <f:render section="selectBody" arguments="{nodes: nodes}"/>
+                        </div>
+                    </f:else>
+                </f:if>
+
+
+            </f:case>
+
+
+        </f:switch>
+</div>
+
+
+<f:section name="selectBody">
+    <f:for each="{nodes}" as="item">
+       <ts:render path="renderer" context="{node: item}"/>
+    </f:for>
+</f:section>
